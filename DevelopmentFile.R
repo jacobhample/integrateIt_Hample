@@ -73,4 +73,22 @@ simp <- function(x, y, a, b) {
 simp(x, y, 4, 22)
 
 
+plot.simp <- function(x, y, a, b) {
+  n <- length(x) - 1
+  h <- (x[length(x)] - x[1]) / n
+  X <- seq(a, b, by = h)
+  y.indices <- which(round(x, 5) %in% round(X, 5))
+  Y <- y[y.indices]
+  n <- length(X) - 1
+  
+  plot(NULL, xlim = c(min(X) - 1, max(X) + 1), ylim = c(min(Y) - 1, max(Y) + 1),
+       main = "Simpson's Parabolas", xlab = "X Values", ylab = "Y Values")
+  sapply(1:X[n - 1], function(i) segments(X[i], Y[i], X[i + 2], Y[i + 2]))
+  
+}
+
+plot.simp(x, y, 4, 8)
+
+
+
 
