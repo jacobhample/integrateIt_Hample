@@ -69,6 +69,24 @@ setMethod(f = "print",
           }
 )
 
+#' @export
+# Plot method
+setMethod(f = "plot",
+          signature = "Simpson",
+          definition = function(object = .Object, x, y) {
+            n <- length(object@x) - 1
+            h <- (object@x[length(object@x)] - object@x[1]) / n
+            X <- seq(object@a, object@b, by = h)
+            y.indices <- which(round(object@x, 5) %in% round(X, 5))
+            Y <- object@y[y.indices]
+            n <- length(X) - 1
+            
+            plot(NULL, xlim = c(min(X) - 1, max(X) + 1), ylim = c(min(Y) - 1, max(Y) + 1),
+                 main = "Simpson's Parabolas", xlab = "X Values", ylab = "Y Values")
+            sapply(1:X[n - 1], function(i) segments(X[i], Y[i], X[i + 2], Y[i + 2]))
+          }
+)
+
 # Validity test
 setValidity("Simpson", function(object) {
   test1 <- object@x < object@y

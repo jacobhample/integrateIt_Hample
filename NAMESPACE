@@ -1,0 +1,7 @@
+export(integrateIt)
+exportClasses(Trapezoid)
+exportClasses(Simpson)
+exportMethods(initialize)
+exportMethods(print)
+exportMethods(plot)
+exportMethods(integrateIt)

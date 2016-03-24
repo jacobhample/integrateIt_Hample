@@ -1,0 +1,23 @@
+\docType{class}
+\name{Simpson-class}
+\alias{Simpson-class}
+\alias{initialize,Simpson-method}
+\alias{print,Simpson-method}
+\title{A Simpson object}
+\description{
+Objects of class \code{Simpson} are integrals estimated using Simpson's rule
+}
+\details{
+#' An object of the class Simpson has the following slots:
+\itemize{
+\item \code{x} A vector of values
+\item \code{y} A vector of evaluated values
+\item \code{a} Lower bound of the integral
+\item \code{b} Upper bound of the integral
+\item \code{estInt} Estimated integral
+}
+}
+\author{
+Jacob H. Hample: \email{jacob.hample@wustl.edu}
+}
+
